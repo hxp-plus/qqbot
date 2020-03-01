@@ -40,4 +40,4 @@ These 2 following modules is needed:
 
 To run this robot, login on CoolQ with your QQ number and password, and run `qqbot.py`. `qqbot.py` will record the date, time and card whenever a group member upload a thing in the group's album. It will be recorded in `data.txt`
 
-`froms.py` is used to write the data in `data.txt` into xlsx forms, to use it, remember to edit the variables in this script according to your own situations. Note that `student_number_offset` and `date_offset` defines the row number of student ids and date to be recorded in your xlsx.
+`froms.py` is used to write the data in `data.txt` into xlsx forms, to use it, remember to edit the variables in this script according to your own situations. Note that `student_number_offset` and `date_offset` defines the row number of student ids and date to be recorded in your xlsx. `row_start` defines which row your data starts, since the form has headings.

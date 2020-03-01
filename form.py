@@ -6,6 +6,7 @@ sheet_name = 'Sheet3'
 datafile = 'data.txt'
 offset_date = 8
 offset_student_number = 3
+row_start = 3
 
 def read_xlsx(path, sheet_name):
     workbook = openpyxl.load_workbook(path)
@@ -22,6 +23,7 @@ def write_xlsx(student_number, date, book_name, sheet_name, offset_student_numbe
                     workbook.save(book_name)
                     break
 
+
 def read_data_and_write(datafile, book_name, sheet_name, offset_student_number, offset_date):
     fo = open(datafile, 'r+')
     while True:
@@ -33,4 +35,11 @@ def read_data_and_write(datafile, book_name, sheet_name, offset_student_number, 
             date=re.search(r'\d{4}/\d{1,2}/\d{1,2}', line).group(0)
             write_xlsx(student_number, date, book_name, sheet_name, offset_student_number, offset_date)
 
+def init(book_name, sheet_name, row_start):
+    workbook,sheet = read_xlsx(book_name, sheet_name)
+    for i in range(row_start,50):
+        for j in range(offset_date, offset_date + 3):
+            sheet.cell(row=i, column=j).value = ''
+
+init(book_name, sheet_name, row_start)
 read_data_and_write(datafile, book_name, sheet_name, offset_student_number, offset_date)
