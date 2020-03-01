@@ -20,7 +20,7 @@ def write_xlsx(student_number, date, book_name, sheet_name, offset_student_numbe
                 if sheet.cell(row=i, column=j).value == None:
                     sheet.cell(row=i, column=j).value = date
                     workbook.save(book_name)
-                    print(student_number, '\t', date)
+                    break
 
 def read_data_and_write(datafile, book_name, sheet_name, offset_student_number, offset_date):
     fo = open(datafile, 'r+')
