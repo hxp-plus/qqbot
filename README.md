@@ -2,7 +2,7 @@
 
 To use this robot, you need to deploy coolq, install 2 python modules below.
 
-## Deploy CoolQ ##
+## Deploy CoolQ on Linux ##
 
 ``` shell
 $ sudo docker pull richardchien/cqhttp:latest
@@ -28,6 +28,24 @@ $ sudo ./run.sh
 Visit `http://localhost:9000/` and use the password `MAX8char` to login.
 
 If it asks you to download chrome, just hit `Reject veirfy`
+
+## Configure the http plugin to use WebSocket ##
+
+Delete `app/io.github.richardchien.coolqhttpapi/config/<your-qq-number.ini>`. Create `<your-qq-number.json>`, and write this configuration into JSON file.
+
+```
+{
+    "ws_reverse_api_url": "ws://127.0.0.1:8080/ws/api/",
+    "ws_reverse_event_url": "ws://127.0.0.1:8080/ws/event/",
+    "use_ws_reverse": true
+}
+```
+
+See <https://nonebot.cqp.moe/guide/getting-started.html>
+
+## Install python 3.8 form source ##
+
+`Python 3.7` or later is needed for nonebot.
 
 ## Install python modules ##
 
